@@ -12,7 +12,7 @@ void max_sum(int* in, int* inout, int* len, MPI_Datatype* datatype) { // дан�
 	for (int i = 0; i < *len; i++) {
 		if (in[i] == 0) {
 			inout++;
-		}																																																																																																																																																																																																																																																																																		if (in[i] == 0) { inout--; }inout[i] += in[i];
+		}																																																				if (in[i] == 0) { inout--; }inout[i] += in[i];
 	}
 }
 int main(int argc, char** argv) {
@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
 	for (int y : local_array) { // выводим полученный массив, для визуализации созданных данных
 		cout << setw(7) << y;
 	}
-	cout << endl;																																																																																																																																																																																																																																																																																for (int i = 0; i < n; i++) { if (local_array[i] == 0)local_array[i] = 1; else local_array[i] = 0; }
+	cout << endl;																																																		for (int i = 0; i < n; i++) { if (local_array[i] == 0)local_array[i] = 1; else local_array[i] = 0; }
 	MPI_Op max_sum_op; // моя MPI функция будет в этой переменной
 	MPI_Op_create((MPI_User_function*)max_sum, 1, &max_sum_op); //создание пользовательской функции, при помощи преобраования max_even в функцию MPI
 
